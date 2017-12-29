@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>case.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<style type="text/css">
+		tr:nth-child(odd){
+			color:red;
+		}
+		tr:nth-child(even){
+			color:purple;
+		}
+	</style>
+	<script type="text/javascript">
+		//奇偶行变色
+		window.onload=function(){
+			//奇偶行变色
+			//获取tr
+			var trs=document.getElementsByTagName("tr");
+			//根据奇偶行显示不同的颜色
+			for(var i=0;i<trs.length;i++){
+				if(i%2==0){
+					trs[i].style.backgroundColor="980476";
+				}else{
+					trs[i].style.backgroundColor="#8dd";
+				}
+			}
+
+
+			var checkAll=document.getElementById("all");
+			var invertCheck=document.getElementById("invertCheck");
+			var unCheck=document.getElementById("unCheck");
+			var div1 = document.getElementById("div1");
+			var inp=div1.getElementsByTagName("input");
+			//全选
+			checkAll.onclick=function (){
+				//ach[i].checked=true;
+				for(var i=0; i<inp.length; i++){
+					inp[i].checked=true;
+				}
+			}
+			//不选
+			unCheck.onclick=function (){
+				for(var i=0; i<inp.length; i++){
+					inp[i].checked=false;
+				}
+			}
+			//反选
+			invertCheck.onclick=function (){
+				for(var i=0; i<inp.length; i++){
+					if(inp[i].checked==true){
+						inp[i].checked=false;
+					}else{
+						inp[i].checked=true;
+							
+					}
+				}
+			}	
+		
+		}
+		/**
+		*全选
+		*/
+		/**
+		function selectAll(){
+			
+			var checkAll=document.getElementById("all");
+			var c=document.getElementsByName("c");
+			for(var i=0; i<c.length; i++){
+				c[i].checked=checkAll.checked;
+			}
+		}
+		*/
+		 /**  
+          * 反选  
+          */  
+       /** function invert() {  
+                var c= document.getElementsByName("c");  
+                 
+                for (var i=0; i <c.length; i++) {  
+                	var arr=c[i];  
+                    if(arr.checked){
+                    	arr.checked=false;
+                    }else{
+                    	arr.checked=true;
+                    }
+                }
+                 alert("dd");
+          } 
+          */ 
+	</script>
+  </head>
+  
+  <body>
+    <table border="1">
+    	<tr><th>用户名</th><th>用户性别</th><th>用户年龄</th></tr>
+    	<tr><td>xm</td><td>女</td><td>12</td></tr>
+    	<tr><td>lh</td><td>男</td><td>13</td></tr>
+    	<tr><td>zs</td><td>女</td><td>14</td></tr>
+    	<tr><td>zs</td><td>男</td><td>14</td></tr>
+    </table>
+    
+    
+   <!-- onclick="selectAll()  invert()-->
+    <input type="checkbox" id="all"/>全选 
+    <input type="checkbox" id="invertCheck"/>反选
+    <input type="checkbox" id="unCheck"/>不选<br>
+    <div id="div1">
+	    <input type="checkbox" name="c"/>篮球
+	    <input type="checkbox" name="c"/>羽毛球
+	    <input type="checkbox" name="c"/>排球
+    </div>
+  </body>
+</html>

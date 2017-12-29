@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myjequery.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<style type="text/css">
+		.myClass{
+			color:red;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			//jquery方法的特点是一般带一个参数 表示获取该参数的值   两个参数表示设置值
+			alert($("input").attr("type"));
+			//attr修改的dom对象属性值
+			//$("input").attr("type","password");
+			
+			
+			//删除属性值两种方法
+			$("input").attr("type","")
+			//$("input").attr("type",undefine);
+			
+	
+			//addClass添加样式到dom元素  内部样式表
+			//$("#myDiv").addClass("myClass");
+			//$("#myDiv").removeClass("myClass");
+			//css(键,值)添加行内样式表 style=""
+			//$("#myDiv").css("color","green");
+			
+			//$("input").val("234");
+			//alert($("#myDiv").html());
+			//alert($("#myDiv").text());
+			//$("#myDiv").html("<font color=purple>这是div</font>")
+			//text把整个当成字符串输出
+			//$("#myDiv").text("<font color=purple>这是div</font>")
+		});
+		
+	</script>
+  </head>
+  
+  <body>
+  	<input class="myClass" style="" type="text" value="dddddd">
+  	<div id="myDiv">
+  		<font color="red">样式表d</font>
+  	</div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myjequery.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var jo=$("input");
+			//eq是获取 选择器选中的多个jquery对象中索引指定的哪个
+			alert(jo.eq(1).val());
+			//get 返回的是dom对象
+			alert(jo.get(1).value);
+			
+			
+		});
+		
+	</script>
+  </head>
+  
+  <body>
+  	<input type="text" id="username" value="zs">
+  	<input type="password" id="password" value="123">
+  </body>
+</html>

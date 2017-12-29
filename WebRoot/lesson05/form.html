@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>form.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+    		//回调函数获取form表单值
+    		/*$("#btn").click(function(){
+    			var paramStr=$("form").serialize();
+    			alert(paramStr);
+    		})
+    		*/
+    		//静态方法拓展
+    		$.extend({
+    			add:function(p1,p2){
+    				return p1+p2;
+    			}
+    		})
+    		alert($.add(10,20));
+    		//实例方法拓展
+    		$("input[name='uname']").add(10,20)
+    		$.fn.extend({
+    			value:function(){
+    				//this是jquery对象
+    				return this[0].value;
+    			}
+    		})
+    		alert($("input[name='uname']").value());
+		})
+	</script>
+  </head>
+  
+  <body>
+    <form>
+    	用户名<input type="text" name="uname" value="123"><br/>
+    	密码<input type="text" name="password"><br/>
+    	再次输入密码<input type="text" name="repassword"><br/>
+    	爱好<input type="checkbox" name="hooby" value="0"/>篮球
+    		<input type="checkbox" name="hooby" value="1" checked="checked" />游泳<br/>
+    		<input id="btn" type="button" value="保存">
+    </form>
+  </body>
+</html>

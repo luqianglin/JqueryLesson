@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>case1.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#a").focus(function(){
+				//this获取的是dom元素转化成jquery对象
+				if($(this).val()=="请输入邮箱地址")
+					$(this).val("");
+			})
+			$("#b").focus(function(){
+				//this获取的是dom元素转化成jquery对象
+				if($(this).val()=="请输入邮箱密码"){
+					$("#b[type='text']").attr("type","password");
+					$(this).val("");
+				}		
+			})
+			
+			//只能点击一次事件
+			//$("#c").one("click", function(){
+  			//	alert("a");
+			//});
+			
+			$("#c").bind("click", function(){
+  				alert("a");
+  				$(this).attr("disabled","disabled");
+			});
+		})
+	</script>
+  </head>
+  
+  <body>
+    <input id="a" type="text" value="请输入邮箱地址">
+  	<input id="b" type="text" value="请输入邮箱密码">
+  	<input id="c" type="button" value="只能点击一次">
+  </body>
+</html>

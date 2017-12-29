@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>move.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+  			$('.b').hide();
+    		$('.list li').mousemove(function(e){
+        		$('.b').eq($(this).index()).show().css({
+            		"top": e.pageY+20,
+            		"left": e.pageX+20,
+            		"right":e.pageX+20
+        		}).siblings("div").hide();
+    		});
+    		$('.list li').mouseleave(function(){
+        		$('.b').hide();
+    		});
+		})
+	</script>
+  </head>
+  
+  <body>
+    <ul class="list">
+        <li><div class="a">1</div></li>
+        <li><div class="a">2</div></li>
+        <li><div class="a">3</div></li>
+    </ul>
+        <div class="b">1-1</div>
+        <div class="b">2-2</div>
+        <div class="b">3-3</div>
+  </body>
+</html>

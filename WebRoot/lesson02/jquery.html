@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myjequery.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		//$是jquery的入口 其实就是一个函数 这个函数可以传入不同类型参数 匿名函数字符串
+		//传入的函数 ==window.onload
+		$(function(){
+			// dom对象 标签(button Anchor等) Window Document对象 javascript语言中的
+			var body = document.body;
+			alert(body);
+			//jquery对象 
+			// css选择器 找到满足选择器条件的dom元素相关的jquery对象(jquery对象其实就是一个包含了 dom对象的数组)
+			//jquery对象 不能调用js的方法和属性 只能调用jquery内置的属性和方法
+			var jqueryObj=$("#username");
+			alert(jqueryObj.val());
+			//如果需要调用js的属性和属性将jquery对象转换成dom对象
+			var domObj =jqueryObj[0];
+			alert(domObj.value);
+			
+			
+			//dom对象
+			var userDom=document.getElementById("username");
+			var tt=$(userDom);
+			alert(tt.val());
+			
+		});
+		
+	</script>
+  </head>
+  
+  <body>
+  	<input type="text" id="username" value="123">
+  </body>
+</html>

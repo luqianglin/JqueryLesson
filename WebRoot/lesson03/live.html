@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>live.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//非委派 相同的选择器 绑定的事件  后续添加的相同dom元素 不会绑定该事件
+			/*$("input[name='t']").click(function(){
+				alert("点击");
+			})
+			*/
+			//事件委派 事件传播
+			$(document).on("click","input[name='t']",function(){
+				alert("点击了按钮");
+			})
+			$("#cre").click(function(){
+				$(document.body).append("<input name='t' type='button' value='新增按钮'>");
+			})
+		})
+	</script>
+  </head>
+  
+  <body>
+   <input type="button" name="t" value="按钮1">
+   <input type="button" name="t" value="按钮2">
+   <input id="cre" type="button" value="点击新增按钮t">
+  </body>
+</html>

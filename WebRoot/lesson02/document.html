@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myjequery.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+		
+		});
+		function clickFun(){
+			$("tr[type='data']").remove();
+			$("table").append("<tr type=data><th>zs</th><th>女</th><th>19</th></tr>")
+		}
+	</script>
+  </head>
+  
+  <body>
+  	<table>
+  		<tr><th>用户姓名</th><th>用户性别</th><th>用户年龄</th></tr>
+  	</table>
+  	<button onclick="clickFun()">添加行</button>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myjequery.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		//$是jquery的入口 其实就是一个函数 这个函数可以传入不同类型参数 匿名函数字符串
+		//传入的函数 ==window.onload
+		$(function(){
+			alert(document.getElementById("t"));
+		});
+		//不建议使用。已过期
+		$(document).ready(function(){
+			//这个匿名函数可以在dom元素初始化完成后 完成自定义的代码逻辑
+			alert("hello");
+		});
+	</script>
+  </head>
+  
+  <body>
+  	<input type="text" id="t">
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myjequery.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			
+			//获取焦点后会触发
+			$("#txt").bind("focusin",function(){
+				$("#txt").attr('value',"")
+			});
+			//失去焦点后会触发
+			$("#txt").bind("focusout",function(){
+				$("#txt").attr('value',"请输入邮箱地址")
+			});
+			//获取焦点后会触发
+			$("#p").bind("focusin",function(){
+				$("#p").attr('value',"")
+			});
+			//失去焦点后会触发
+			$("#p").bind("focusout",function(){
+				$("#p").attr('value',"请输入邮箱密码")
+			});
+			
+			$("#log").click(function (){
+				return false;
+			})
+		
+			
+			
+		});
+		
+	</script>
+	<style type="text/css">
+		#div1{
+			border:1px solid black; 
+			width:180px;height:70px;
+		}
+	</style>
+  </head>
+  
+  <body>
+	 	
+	 	<input type="text" id="txt" name="address" value="请输入邮箱地址" ><br/>
+	 	<input type="text" id="p" name="password" value="请输入邮箱密码" ><br/>
+	 	<input type="button" id="log" value="登录">
+  </body>
+</html>

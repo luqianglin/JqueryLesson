@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ajaxp.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+		
+		$("input[type='button']").click(function(){
+			var addCode=$("#addCode").val();
+			var url="http://restapi.amap.com/v3/weather/weatherInfo";
+			//$.ajax是$对象的一个静态方法
+			var jsonObj={
+				//请求的method类型
+   				type: "POST",
+   				//请求的路径
+   				url: url,
+   				//将返回的字符串 转换成json对象 (JSON.parse(返回字符串))
+   				dataType:'json',
+   				//异步调用
+   				async:true,
+   				//传递的数据
+   				//data: "name=John&location=Boston",
+   				data:"key=97e580a34eef0fd086faa669566b7704&city="+addCode,
+   				//请求响应的回调函数 参数1就是写回的json数据
+   				success: function(msg){
+   					var tq=msg.lives[0].weather;
+   					$("div").remove();
+   					if(tq=="晴"){
+   						$(document.body).append("<div><img src='sun.jpg'/></div>")
+   					}else{
+   						$(document.body).append("<div><img src='yun.png'/></div>")
+   					}
+     				
+   				},
+   				error:function(xhr,textStatus,errorThrown){
+   					alert(textStatus+"======"+errorThrown);
+   				}
+			};
+			// a.ajax是 $对象的一个静态方法
+			$.ajax(jsonObj);
+		})
+	});
+	</script>
+  </head>
+  
+  <body>
+    <input id="addCode" type="text" value="城市"/>
+    <input type="button" value="获取天气"/>
+  </body>
+</html>

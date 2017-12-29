@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+    	var $times=$(".times");
+    	var $nowCity=$(".nowCity");
+    	var $list=$(".list");
+   		var oCity="广州";//设置城市
+    $.ajax({
+        type:"GET",//默认是GET
+        url:"http://api.map.baidu.com/telematics/v3/weather?location="+oCity+"&output=json&ak=ohA7QHfg0BBrpiY4kyuIAAsD",
+        dataType:"jsonp",
+        success:function(data){
+          $nowCity.html(data.results[0].currentCity);//给城市赋值
+          $times.html(data.date);//把对象里的date赋值给时间
+          var oWeather = data.results[0].weather_data;
+          for (var i = 0; i < oWeather.length; i++) {
+           oWeathers(oWeather[i]);
+          };
+        },
+        error:function(jqXHR){
+          alert("信息错误"+jqXHR.status);
+        }
+    })
+    function oWeathers(weathers){
+     var oLi='<li>'+
+          '<div>'+weathers.date+'</div>'+
+          '<div><img src='+weathers.dayPictureUrl+'></div>'+
+          '<div>'+weathers.temperature+'</div>'+
+          '<div>'+weathers.weather+'</div>'+
+          '<div>'+weathers.wind+'</div>'+
+          '</li>'
+        $list.append(oLi);
+    }
+})
+	</script>
+  </head>
+  <body>
+    <div class="wrap">
+    	<h3>日期<span class="times"></span>城市:<span class="nowCity"></span></h3>
+    	<ul class="list"></ul>
+    </div>
+  </body>
+</html>

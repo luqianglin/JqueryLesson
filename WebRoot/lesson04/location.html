@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>location.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		
+		$("input[type='button']").click(function(){
+			var addIp=$("#addIp").val();
+			
+			var url="http://restapi.amap.com/v3/ip?key=4150e69b11f44809028c9125d0c7cf52&ip="+addIp;
+			//$.ajax是$对象的一个静态方法
+			$.ajax({
+				//请求的method类型
+   				type: "GET",
+   				//请求的路径
+   				url: url,
+   				//将返回的字符串 转换成json对象 (JSON.parse(返回字符串))
+   				dataType:'json',
+   				//请求响应的回调函数 参数1就是写回的json数据
+   				success: function(msg){
+   					var ip=msg.province;
+			  		var city=msg.city; 
+			  		$("div").remove();
+			  		$(document.body).append("<div>获取的公网地址"+ip,city+"</div>");
+			  		
+     				
+   				}
+			});
+		})
+		
+	})
+	</script>
+  </head>
+  
+  <body>
+    <input id="addIp" type="text" value=""/>
+    <input type="button" value="获取ip"/>
+  </body>
+</html>

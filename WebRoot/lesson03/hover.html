@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>hover.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//鼠标获取焦点或失去焦点
+			/*$("a").hover(function (e) {
+				x = e.pageX;
+				y = e.pageY;
+				$("div").css({
+					"position":"absolute",
+					"left":x+20+"px",
+					"top":y-20+"px",
+					//"display":"inline-block",
+				})
+    			$("div").css("display","block");
+  			},function (e) {
+    			$("div").css("display","none");
+  			});
+  			*/
+  			
+    		$("div").hide();
+    		$("a").mousemove(function(e){
+    			x = e.pageX;
+				y = e.pageY;
+        		$("div").eq($(this).index()).show().css({
+        			"position":"absolute",
+            		"left":x+20+"px",
+					"top":y-20+"px",
+   
+        		}).siblings("div").hide();
+        		$("div").css("display","block");
+    		});
+    		$("a").mouseleave(function(e){
+        		
+        		$("div").css("display","none");
+        		$("div").hide();
+    		});
+  			
+		})
+	</script>
+  </head>
+  
+  <body>
+  	<br/>
+    <a href="http://www.taobao.com">淘宝ddddddfdf</a>
+    <div style="display:none">
+    	<img src="tu.png"/>
+    </div>
+  </body>
+</html>

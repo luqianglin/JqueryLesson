@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>css.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<!-- 
+		选择器 选择某些特定的dom元素
+	 -->
+	<style type="text/css">
+		/*
+			标签选择器
+		*/
+		div{
+			color: red;
+			font-size: large;
+		}
+		#myspan{
+			color:green;
+		}
+		.j{
+			color:purple;
+		}
+		p[v="ajax"]{
+			color: blue;
+		}
+		p:nth-child(odd){
+			color:yellow;
+		}
+		p:nth-child(even){
+			color:purple;
+		}
+		a{
+			text-decoration: none;
+		}
+		a:hover{
+			color:red;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var myName=document.getElementById("myname");
+			myName.value="你好";
+			alert(myName);
+			var password=document.getElementsByName("password")[0];
+			alert(password);
+			var mySex=document.getElementsByTagName("input")[2];
+			alert(mySex);
+			//添加子元素(appendChild)   删除子元素 (removeChild)  createElement("input")
+			document.getElementsByTagName("form")[0].removeChild(myName);
+			
+			
+			//万能的追加元素
+			var myInput =document.createElement("input");
+			myInput.value="hello";
+			document.getElementById("myDiv").appendChild(myInput);
+			
+			
+			//支持div和span 覆盖当前div中所有的内容
+			//document.getElementById("myDiv").innerHTML="<font color=red>hello</font>";
+		}
+		
+	</script>
+  </head>
+  
+  <body>
+   	<div>welcome</div>
+   	<div>how are you</div>
+   	<span id="myspan">css</span>
+   	<p class="j">jquery</p>
+   	<p v="ajax">ajax</p>
+   	<p>hello</p>
+   	
+   	<a href="http://www.baibu.com">百度</a>
+   	
+   	<form action="">
+   	用户名:<input type="text" id="myname"/><br>
+   	用户密码:<input type="text" name="password"/><br>
+   	性别:<input type="text" />
+   	</form>
+   	<div id="myDiv" style="border: 1px solid green; width:200px;height:100px">
+   		<font color=green>hello</font>
+   	</div>
+  </body>
+</html>

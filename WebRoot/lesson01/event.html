@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>event.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	
+	<script type="text/javascript">
+		function myClick(){
+			var e=event.srcElement;
+			var bd=e.parentNode;
+			bd.removeChild(e);
+		}
+		window.onload=function(){
+			//获取所有的p
+			var pArray=document.getElementsByTagName("p");
+			for(var i=0;i<pArray.length; i++){
+				if(pArray[i].addEventListener){
+					//除了ie8以外的浏览器外,使用addEventListener添加事件
+					pArray[i].addEventListener("click",myClick);
+				}else{
+					pArray[i].attachEvent("onclick",myClick);
+				
+				}
+				
+			}
+		}
+	</script>
+  </head>
+  
+  <body>
+   <p>如果你点我,我就会消失</p>
+   <p>继续点我</p>
+   <p>点我</p>
+   <p>点我</p>
+   <p>点我</p>
+  </body>
+</html>
